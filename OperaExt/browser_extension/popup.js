@@ -1,4 +1,4 @@
-document.getElementById("convertButton").addEventListener("click", () => {
+document.getElementById("sendButton").addEventListener("click", () => {
     chrome.runtime.sendMessage("run");
 });
 

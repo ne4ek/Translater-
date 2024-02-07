@@ -1,8 +1,8 @@
 {
 	"manifest_version": 3,
-	"name": "Text Upcase Extension",
+	"name": "Translate text",
 	"version": "1.0",
-	"description": "Converts selected text to uppercase and sends it to a Flask app.",
+	"description": "Translate text and add in BD",
 	"permissions": ["activeTab", "scripting", "contextMenus", "tabs", "storage"],
 	"background": {
 	  "service_worker": "background.js"

@@ -13,7 +13,7 @@ app = Flask(__name__, static_url_path='')
 cors = CORS(app)
 json_file_for_update = os.getenv('PATH_TO_JSON_FILE_INCLUDE')
 
-@app.route("/convert", methods=["POST"])
+@app.route("/sendWordForAdd", methods=["POST"])
 def main():
     data = request.get_json()
     print("Word geted, ", data)
