@@ -1,6 +1,6 @@
 chrome.contextMenus.create({
-    id: "convertText",
-    title: "Convert Selected Text to Uppercase",
+    id: "translateText",
+    title: "Translate Selected Text",
     contexts: ["selection"],
 });
 
@@ -24,8 +24,8 @@ chrome.contextMenus.create({
 //     }
 // });
 
-chrome.contextMenus.onClicked.addListener(function (info, tab) {
-    if (info.menuItemId === "convertText") {
+chrome.contextMenus.onClicked.addEventListener(function (info, tab) {
+    if (info.menuItemId === "translateText") {
         const selectedText = info.selectionText;
         fetch("http://localhost:5000/sendWordForAdd", {
             method: "POST",

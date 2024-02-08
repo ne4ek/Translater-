@@ -3,20 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Osas?</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/body.css">
+    <link rel="stylesheet" href="styles/head.css">
+    <link rel="stylesheet" href="styles/footer.css">
 </head>
 <body>
 <div class="container">
-  <div class="head"></div>
-  <div class="body">
-    <div class="originalText">
-
+    <div class="head">
+        <p>Translate text</p>
     </div>
-    <button id="TranslateBut">Translate</button>
-    <div class="translatedText">
+    <div class="body">
+        <div class="originalText">
+            <textarea></textarea>
+        </div>
+        <div class="buttons">
+            <button id="sendBut">Send word</button>
+            <button id="TranslateBut">Translate</button>
+        </div>
 
+        <div class="translatedText">
+            <textarea disabled></textarea>
+        </div>
     </div>
-  </div>
-  <div class="footer"></div>
+    <div class="footer">
+        <p>Some information</p>
+    </div>
 </div>
 </body>
 </html>
