@@ -3,32 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Osas?</title>
+    <link rel="stylesheet" href="styles/Allcontent.css">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/body.css">
     <link rel="stylesheet" href="styles/head.css">
     <link rel="stylesheet" href="styles/footer.css">
 </head>
 <body>
 <div class="container">
-    <div class="head">
+    <header>
         <p>Translate text</p>
-    </div>
-    <div class="body">
-        <div class="originalText">
-            <textarea></textarea>
+    </header>
+
+    <main>
+        <div class="originalTextContainer">
+            <textarea id="originalText"></textarea>
         </div>
-        <div class="buttons">
-            <button id="sendBut">Send word</button>
-            <button id="TranslateBut">Translate</button>
+        <div class="buttonsContainer">
+            <div class="firstButtonLine buttonLine">
+                <button class="button" id="sendBut">Send</button>
+                <button class="button" id="translateBut">Translate</button>
+            </div>
+            <div class="secondButtonLine buttonLine">
+                <button class="button" id="deleteBut">Delete</button>
+                <button class="button" id="deleteLastBut">Delete last</button>
+            </div>
         </div>
 
-        <div class="translatedText">
+        <div class="translatedTextContainer">
             <textarea disabled></textarea>
         </div>
-    </div>
-    <div class="footer">
+    </main>
+    <footer>
         <p>Some information</p>
-    </div>
+    </footer>
 </div>
 </body>
+<script src="popup.js"></script>
 </html>

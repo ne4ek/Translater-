@@ -1,10 +1,50 @@
-*{
-    margin: 0px;
-    padding: 0px;
+
+.originalTextContainer textarea {
+    width: 250px;
+    height: 125px;
+    background-color: lightslategray;
+    resize: none;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
 }
 
-.container{
-    padding: 3px;
+.translatedTextContainer textarea {
+    width: 250px;
+    height: 125px;
+    background-color: lightslategray;
+    resize: none;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.buttonLine{
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    padding: 5px;
+    font-size: 20px;
+    border: 3px solid black;
+    background-color: lightslategray;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+}
+
+.button:hover {
     background-color: #575757;
 }
+
+
 
