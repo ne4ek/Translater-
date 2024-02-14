@@ -1,15 +1,12 @@
 import os
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
-from dotenv import load_dotenv
-from functions import *
-
-load_dotenv()
+from custom_functions import *
 
 app = Flask(__name__, static_url_path='')
 
 cors = CORS(app)
-json_file_for_update = os.getenv('PATH_TO_JSON_FILE_INCLUDE')
+json_file_for_update: str = os.getcwd() + "/all_words.json"
 
 
 @app.route("/sendWordForAdd", methods=["POST"])
@@ -24,11 +21,42 @@ def send_word_for_add():
     return "Text converted and saved."
 
 
+@app.route("/translateWord", methods=["GET"])
+def translate_word():
+    data = request.args.get("word")
+
+    original_word: str = data.strip().lower()
+    translated_word = translate(original_word)
+
+    print("translate word - ", original_word, translated_word)
+    response = jsonify({"translatedWord": translated_word})
+    return response
+
+
+@app.route('/deleteWord', methods=["DELETE"])
+def delete_word():
+    data = request.get_json()
+    print("Word deleted, ", data)
+    original_word: str = data['text'][0].strip().lower()
+
+    delete_word_from_json(json_file_for_update, original_word)
+    return "Delete successful"
+
+
+@app.route('/deleteLastWord', methods=["DELETE"])
+def delete_last_word():
+    last_word = get_last_word_from_json(json_file_for_update)
+    delete_word_from_json(json_file_for_update, last_word)
+    print("Last word deleted, ", last_word)
+    return "Delete successful last"
+
+
 @app.route("/testPath", methods=["POST"])
 def test_path():
     data = request.get_json()
     print('test', data)
     return "test successful"
+
 
 if __name__ == "__main__":
     app.run(host="localhost", port=5000)
