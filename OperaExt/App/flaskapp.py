@@ -15,7 +15,7 @@ def send_word_for_add():
     print("Word geted, ", data)
 
     original_word: str = data['text'][0].strip().lower()
-    translated_word: str = translate(original_word)
+    translated_word: str = translate(original_word).lower()
 
     update_json_file(json_file_for_update, (original_word, translated_word))
     return "Text converted and saved."

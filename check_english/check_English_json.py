@@ -2,16 +2,18 @@ import json
 import os
 from random import randint
 from colorama import Fore
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 
-load_dotenv()
+# load_dotenv()
 
-file_name = os.getenv('PATH_TO_JSON_FILE_INCLUDE')
+# file_path = os.getenv('PATH_TO_JSON_FILE_INCLUDE')
+file_name = "/all_words.json"
+file_path = os.getcwd() + file_name
 
 
 class Eng:
-    file: dict = json.load(open(file_name, encoding="utf-8"))
+    file: dict = json.load(open(file_path, encoding="utf-8"))
     right, wrong = 0, 0
 
     def _print(self) -> None:
