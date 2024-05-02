@@ -2,12 +2,12 @@ import json
 import os
 from random import randint
 from colorama import Fore
-# from dotenv import load_dotenv
 
 
-# load_dotenv()
 
-# file_path = os.getenv('PATH_TO_JSON_FILE_INCLUDE')
+
+
+
 file_name = "/all_words.json"
 file_path = os.getcwd() + file_name
 
