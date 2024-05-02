@@ -4,10 +4,6 @@ from random import randint
 from colorama import Fore
 
 
-
-
-
-
 file_name = "/all_words.json"
 file_path = os.getcwd() + file_name
 
