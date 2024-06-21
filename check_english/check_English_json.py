@@ -11,6 +11,7 @@ file_path = os.getcwd() + file_name
 class Eng:
     file: dict = json.load(open(file_path, encoding="utf-8"))
     right, wrong = 0, 0
+    file_len = len(file)
 
     def _print(self) -> None:
         print(
@@ -20,7 +21,7 @@ class Eng:
             start=0,
             end="all") -> None:
         if end == "all":
-            end = len(self.file)
+            end = self.file_len
 
         words = {i: self.file[i] for i in list(self.file.keys())[start: end]}
 
@@ -42,6 +43,15 @@ class Eng:
                 self.wrong += 1
         self._print()
         self.right, self.wrong = 0, 0
+
+    def getEnglishWords(self,
+            start=0,
+            end="all"):
+        if end == "all":
+            end = len(self.file)
+        words = {i: self.file[i] for i in list(self.file.keys())[start: end]}
+        return list(words.keys())
+        
 
 
 if __name__ == '__main__':
