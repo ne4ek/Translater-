@@ -4,3 +4,4 @@
 /.env
 /check_english/__pycache__/check_English_json.cpython-311.pyc
 /OperaExt/App/__pycache__/
+*/__pycache__/

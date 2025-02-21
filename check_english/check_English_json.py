@@ -32,7 +32,6 @@ class Eng:
             inp = input(f"{Fore.RESET}{words[words_keys[rand]]}\t").lower()
 
             if inp == "stop":
-
                 break
             elif inp == words_keys[rand]:
                 print(f"{Fore.GREEN}{words_keys[rand]} \t {len(words) - 1}")

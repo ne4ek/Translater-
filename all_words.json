@@ -243,5 +243,12 @@
  "canonical": "канонический",
  "restriction": "ограничение",
  "benefit": "выгода",
- "conciseness": "краткость"
+ "conciseness": "краткость",
+ "eng_word": "calm",
+ "ru_word": "спокойствие",
+ "date": {
+  "day": 21,
+  "month": 2,
+  "year": 2025
+ }
 }

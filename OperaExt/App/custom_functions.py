@@ -1,5 +1,6 @@
 import json
 import requests as req
+from datetime import datetime
 
 def translate(word: str) -> str:
     headers = {"User-Agent":
@@ -12,24 +13,27 @@ def translate(word: str) -> str:
     return translated_word
 
 
-def update_json_file(file_name: str, words: tuple) -> None:
+def update_json_file(file_name: str, words: tuple[str, str]) -> None:
     with open(file_name, "r", encoding="utf-8") as file:
-        file_in_python_format: dict = json.load(file)
-        file_in_python_format.update({words[0]: words[1]})
+        file_in_python_format: list = json.load(file)
+        today = datetime.now()
+        file_in_python_format.append({"eng_word": words[0].upper(), "ru_word": words[1].upper(), "date": {"day": today.day, "month": today.month, "year": today.year}})
     with open(file_name, "w", encoding="utf-8") as file:
         json.dump(file_in_python_format, file, ensure_ascii=False, indent=1)
 
 
-def delete_word_from_json(file_name: str, word: str) -> None:
+def delete_word_from_json(file_name: str, eng_word: str) -> None:
     with open(file_name, "r", encoding="utf-8") as file:
-        file_in_python_format: dict = json.load(file)
-        file_in_python_format.pop(word, None)
+        file_in_python_format: list = json.load(file)
+        for index, word in enumerate(file_in_python_format):
+            if word["eng_word"] == eng_word.upper():
+                file_in_python_format.pop(index)
     with open(file_name, "w", encoding="utf-8") as file:
         json.dump(file_in_python_format, file, ensure_ascii=False, indent=1)
 
 def get_last_word_from_json(file_name: str) -> str:
     with open(file_name, "r", encoding="utf-8") as file:
-        file_in_python_format: dict = json.load(file)
-        last_word = tuple(file_in_python_format.keys())[-1]
+        file_in_python_format: list = json.load(file)
+        last_word = file_in_python_format[-1]
         print(last_word)
     return last_word

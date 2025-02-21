@@ -6,7 +6,7 @@ from custom_functions import *
 app = Flask(__name__, static_url_path='')
 
 cors = CORS(app)
-json_file_for_update: str = os.getcwd() + "/all_words.json"
+json_file_for_update: str = os.getcwd() + "/words.json"
 
 
 @app.route("/sendWordForAdd", methods=["POST"])
@@ -45,7 +45,8 @@ def delete_word():
 
 @app.route('/deleteLastWord', methods=["DELETE"])
 def delete_last_word():
-    last_word = get_last_word_from_json(json_file_for_update)
+    last_word_stuct = get_last_word_from_json(json_file_for_update)
+    last_word = last_word_stuct["eng_word"]
     delete_word_from_json(json_file_for_update, last_word)
     print("Last word deleted, ", last_word)
     return "Delete successful last"

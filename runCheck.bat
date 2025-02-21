@@ -1,3 +1,3 @@
 @echo off
 
-python check_english\pusk.py
+python run_check_english_GUI_json.py
